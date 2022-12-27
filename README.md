@@ -84,9 +84,12 @@ height: str
     gpt_theme_prompt: str
     gpt_page_prompt: str
 ```
-- `self.api`: an instantiation of `WebUIApi`, notable methods include:
+- `self.api`: an instantiation of `WebUIApi`, containing all functionality from the AUTOMATIC1111 web ui. Notable methods include:
     - `txt2img`
     - `img2img`
+    - `extra_single_image` (upscaling)
+
+Take a look at `webuiapi.py` for a more detailed look
 
 After instantiating your diffusser, generate an ebook with the `generate_ebook` method:
 ```py
