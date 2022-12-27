@@ -1,5 +1,5 @@
 # Ebook-Diffuser
-An end to end, customizable, autonomous ebook automation tool leveraging Stable Diffusion and GPT-3, built on Automatic1111's Stable Diffusion API
+An end to end, customizable, ebook automation tool leveraging Stable Diffusion and GPT-3, built on Automatic1111's Stable Diffusion API to create beautiful books in `PDF` format
 
 # Prerequisites
 
