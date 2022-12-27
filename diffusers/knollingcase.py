@@ -62,6 +62,8 @@ class Knollingcase(EBookDiffuser):
             steps=self.sd.steps,
             cfg_scale=self.sd.cfg_scale,
             sampler_index=self.sd.sampler,
+            width=self.sd.width,
+            height=self.sd.height,
         )
 
         upscaled = self.api.extra_single_image(

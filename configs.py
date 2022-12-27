@@ -9,6 +9,8 @@ class StableDiffusionConfig:
     cfg_scale: float
     sampler: str
     negative_prompt: str
+    width: str
+    height: str
 
 
 @dataclass
@@ -32,6 +34,8 @@ default_profile_config = {
         "cfg_scale": 6.0,
         "sampler": "DPM++ SDE Karras",
         "negative_prompt": "blurry, grainy, cartoon, animated, photoshop, underwater",
+        "width": 768,
+        "height:": 768,
     },
     "book": {"num_pages": 75, "width": 550, "height": 800},
     "story": {

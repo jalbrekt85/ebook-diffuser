@@ -15,6 +15,7 @@ add the `--api` flag to your `webui-user.bat` to run in API mode:
 ```
 set COMMANDLINE_ARGS=--api
 ```
+If you are using a 2.X model, make sure to follow the additional instructions [here](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20)
 
 Finally, run `webui-user.bat`
 
@@ -63,12 +64,14 @@ A directory, `profiles/{diffuser name}` will automatically be generated. Inside 
 
 -`self.sd`: a dataclass, `StableDiffusionConfig`:
 ```py
-    model: str
-    prompt_template: str
-    steps: int
-    cfg_scale: float
-    sampler: str
-    negative_prompt: str
+model: str
+prompt_template: str
+steps: int
+cfg_scale: float
+sampler: str
+negative_prompt: str
+width: str
+height: str
 ```
 - `self.book`: a dataclass, `BookConfig`:
 ```py
