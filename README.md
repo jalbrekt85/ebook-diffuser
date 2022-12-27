@@ -22,7 +22,7 @@ Finally, run `webui-user.bat`
 `ebook-diffuser` will connect to `127.0.0.1` by default once your local server is running. this can be modifed in `webuiapi.py` - the API wrapper that make requests from your server
 
 If you plan on using the OpenAI API in your `diffusers` you will need add your API key to a `.env` following the `example.env`:
-```
+```sh
 cp .example.env .env
 ```
 
@@ -30,18 +30,18 @@ cp .example.env .env
 
 ### Clone the repository
 Independent of AUTOMATIC1111's repo, clone this repo
-```
+```sh
 git clone https://github.com/jalbrekt85/ebook-diffuser.git
 ```
 
 ### Navigate to the project directory
 
-```
+```sh
 cd ebook-diffuser
 ```
 
 ### Install the dependencies
-```
+```sh
 pip install -r requirements.txt
 ```
 
@@ -96,3 +96,13 @@ After instantiating your diffusser, generate an ebook with the `generate_ebook` 
  A directory, `profiles/{diffuser name}/books/{theme}`, will be created containing the final result, `{theme}.pdf` and all generated images
 
 The PDF can be directly uploaded to self publishing sites like Amazon to turn your AI generation into a physical book
+
+## Using the Knollingcase Diffuser
+This repo is configured to work with the `Knollingcase` diffuser by default. To use it, you'll just need to install the model & embeddings:
+- **model**: SD 2.0 ([download](https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt)) ([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20))
+- **embeddings**: ProGamerGov/knollingcase-embeddings-sd-v2-0 ([download](https://huggingface.co/ProGamerGov/knollingcase-embeddings-sd-v2-0/blob/main/kc32-v4-5000.pt)) ([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Textual-Inversion#using-pre-trained-embeddings))
+
+Then simply run `main.py`
+```sh
+python main.py
+```
