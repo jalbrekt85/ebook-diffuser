@@ -99,8 +99,8 @@ The PDF can be directly uploaded to self publishing sites like Amazon to turn yo
 
 ## Using the Knollingcase Diffuser
 This repo is configured to work with the `Knollingcase` diffuser by default. To use it, you'll just need to install the model & embeddings:
-- **model**: SD 2.0 ([download](https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt)) ([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20))
-- **embeddings**: ProGamerGov/knollingcase-embeddings-sd-v2-0 ([download](https://huggingface.co/ProGamerGov/knollingcase-embeddings-sd-v2-0/blob/main/kc32-v4-5000.pt)) ([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Textual-Inversion#using-pre-trained-embeddings))
+- **model**: [SD 2.0](https://huggingface.co/stabilityai/stable-diffusion-2):  ([download](https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt)) /([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20))
+- **embeddings**: [ProGamerGov/knollingcase-embeddings-sd-v2-0](https://huggingface.co/ProGamerGov/knollingcase-embeddings-sd-v2-0):  ([download](https://huggingface.co/ProGamerGov/knollingcase-embeddings-sd-v2-0/blob/main/kc32-v4-5000.pt))/([install guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Textual-Inversion#using-pre-trained-embeddings))
 
 Then simply run `main.py`
 ```sh
