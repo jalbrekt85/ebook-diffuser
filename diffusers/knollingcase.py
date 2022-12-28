@@ -12,8 +12,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 class Knollingcase(EBookDiffuser):
     # configured for 8.25x11 hardcover Amazon books
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.init_profile()
 
     def generate_theme(self) -> str:
@@ -61,7 +61,7 @@ class Knollingcase(EBookDiffuser):
             negative_prompt=self.sd.negative_prompt,
             steps=self.sd.steps,
             cfg_scale=self.sd.cfg_scale,
-            sampler_index=self.sd.sampler,
+            sampler_name=self.sd.sampler,
             width=self.sd.width,
             height=self.sd.height,
         )

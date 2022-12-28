@@ -19,7 +19,7 @@ If you are using a 2.X model, make sure to follow the additional instructions [h
 
 Finally, run `webui-user.bat`
 
-`ebook-diffuser` will connect to `127.0.0.1` by default once your local server is running. this can be modifed in `webuiapi.py` - the API wrapper that make requests from your server
+`EbookDiffuser` will connect to `127.0.0.1` by default once your local server is running. You can modify this by passing in the `host`/`port` kwargs in your diffuser instantiation
 
 If you plan on using the OpenAI API in your `diffusers` you will need add your API key to a `.env` following the `example.env`:
 ```sh
@@ -84,12 +84,11 @@ height: str
     gpt_theme_prompt: str
     gpt_page_prompt: str
 ```
-- `self.api`: an instantiation of `WebUIApi`, containing all functionality from the AUTOMATIC1111 web ui. Notable methods include:
+- `self.api`: an instantiation of [WebUIApi](https://github.com/mix1009/sdwebuiapi), containing an interface for all of the functionality from the AUTOMATIC1111 web ui. Notable methods include:
     - `txt2img`
     - `img2img`
     - `extra_single_image` (upscaling)
 
-Take a look at `webuiapi.py` for a more detailed look
 
 After instantiating your diffusser, generate an ebook with the `generate_ebook` method:
 ```py

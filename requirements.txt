@@ -4,3 +4,4 @@ reportlab==3.6.12
 requests==2.28.1
 rich==12.6.0
 python-dotenv==0.21.0
+webuiapi==0.0.2

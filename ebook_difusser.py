@@ -5,8 +5,8 @@ import json
 from PIL import Image
 from reportlab.pdfgen import canvas
 from rich.console import Console
-
 from webuiapi import WebUIApi
+
 from configs import *
 
 console = Console()
@@ -40,6 +40,16 @@ class EBookDiffuser(ABC):
             self.book = BookConfig(*config["book"].values())
             self.story = StoryConfig(*config["story"].values())
             console.print(self.sd, self.book, self.story)
+    
+    def get_working_model(self):
+        return self.api.get_options()["sd_model_checkpoint"]
+
+    def set_working_model(self, model_name):
+        assert model_name in [
+            x["model_name"] for x in self.api.get_sd_models()
+        ], "model not found"
+        options = {"sd_model_checkpoint": model_name}
+        self.api.set_options(options)
 
     @abstractmethod
     def generate_theme(self) -> str:
@@ -57,8 +67,8 @@ class EBookDiffuser(ABC):
         pass
 
     def generate_ebook(self, theme=None):
-        if self.sd.model != self.api.get_working_model():
-            self.api.set_working_model(self.sd.model)
+        if self.sd.model != self.get_working_model():
+            self.set_working_model(self.sd.model)
 
         if not theme:
             theme = self.generate_theme()
