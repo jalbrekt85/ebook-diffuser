@@ -37,7 +37,7 @@ class Knollingcase(EBookDiffuser):
 
     def generate_page_prompt(self, theme) -> str:
         prompt = self.story.gpt_page_prompt.format(theme)
-        response = openai.Completion.create(
+        res = openai.Completion.create(
             model=f"text-davinci-003",
             prompt=prompt,
             temperature=1,
@@ -48,12 +48,12 @@ class Knollingcase(EBookDiffuser):
             stop=["\ntheme"],
         )
 
-        text = response["choices"][0]["text"].split(":")[1][1:]
+        page_prompt = res["choices"][0]["text"].split(":")[1][1:]
 
         # add latest result to gpt prompt template to avoid repetitive results
-        self.story.gpt_page_prompt = prompt + "\nresponse: " + text + "\n" + "theme: {}"
+        self.story.gpt_page_prompt = prompt + "\nresponse: " + page_prompt + "\n" + "theme: {}"
 
-        return "{} {}".format(theme, text)
+        return "{} {}".format(theme, page_prompt)
 
     def generate_page_image(self, prompt) -> Image:
         res = self.api.txt2img(
