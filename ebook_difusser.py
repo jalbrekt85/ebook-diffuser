@@ -1,6 +1,7 @@
 import os
 from abc import ABC, abstractmethod
 import json
+import warnings
 
 from PIL import Image
 from reportlab.pdfgen import canvas
@@ -34,12 +35,18 @@ class EBookDiffuser(ABC):
             with open(self.config_path, "w") as f:
                 json.dump(default_profile_config, f)
 
+            console.print(f"[bold green]Profile `{self.name}` created.[bold green]\n[bold blue]Update your config at: {self.config_path} and rerun![bold blue]")
+            exit()
+
         with open(self.config_path, "r") as f:
             config = json.load(f)
             self.sd = StableDiffusionConfig(*config["stable_diffusion"].values())
             self.book = BookConfig(*config["book"].values())
             self.story = StoryConfig(*config["story"].values())
             console.print(self.sd, self.book, self.story)
+
+            if config == default_profile_config:
+                console.print(f"[yellow]Warning: Using default profile config for {self.name}[yellow]")
     
     def get_working_model(self):
         return self.api.get_options()["sd_model_checkpoint"]
