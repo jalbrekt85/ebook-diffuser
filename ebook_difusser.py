@@ -1,7 +1,6 @@
 import os
 from abc import ABC, abstractmethod
 import json
-import warnings
 
 from PIL import Image
 from reportlab.pdfgen import canvas
